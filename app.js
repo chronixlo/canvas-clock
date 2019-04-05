@@ -4,6 +4,7 @@
 
   var width = canvas.width = window.innerWidth;
   var height = canvas.height = window.innerHeight;
+  var isSmallScreen = width < 500;
   var halfWidth = width / 2;
   var halfHeight = height / 2;
   var faceRadius = width > 900 ? halfWidth / 2 : halfWidth - 40;
@@ -15,6 +16,7 @@
   var minuteTickLength = 6;
   var hourTickWidth = 4;
   var minuteTickWidth = 2;
+  var fontSize = isSmallScreen ? 32 : 48;
 
   render();
 
@@ -76,13 +78,13 @@
 
         // number = romanize(number);
 
-        var numberX = Math.cos(angle * Math.PI / 180) * (tickLength - 36) + halfWidth;
-        var numberY = Math.sin(angle * Math.PI / 180) * (tickLength - 36) + halfHeight;
+        var numberX = Math.cos(angle * Math.PI / 180) * (tickLength - fontSize / 1.5) + halfWidth;
+        var numberY = Math.sin(angle * Math.PI / 180) * (tickLength - fontSize / 1.5) + halfHeight;
 
         ctx.beginPath();
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.font = '48px serif';
+        ctx.font = fontSize + 'px serif';
         ctx.fillStyle = '#444';
         ctx.fillText(number, numberX, numberY);
         ctx.closePath();
