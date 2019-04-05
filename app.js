@@ -6,7 +6,7 @@
   var height = canvas.height = window.innerHeight;
   var halfWidth = width / 2;
   var halfHeight = height / 2;
-  var faceRadius = halfWidth / 2;
+  var faceRadius = width > 900 ? halfWidth / 2 : halfWidth - 40;
   var handTailLength = faceRadius * 0.1;
   var hourHandLength = faceRadius * 0.5;
   var minuteHandLength = faceRadius * 0.9;
